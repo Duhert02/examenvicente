@@ -1,21 +1,28 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-class TestGuerra extends TestCase {
+class TestGuerrea extends TestCase{
 
-    private $warrior;
+    private $op;
 
     public function setUp():void{
-        $this->warrior =  new Guerrera("Astrid",10,"viva");
+        $this->op = new Guerrera();
     }
 
-    public function testHerida(){
-        $this->assertEquals("muerta",$this->warrior->suspension(0));
+    public function testHeridaAlive(){
+        $this->assertEquals(1,'alive',$this->op->herida(11,'alive'));
     }
 
-    public function testPocion(){
-        $this->assertEquals(82,$this->warrior->pesoTotal(70,12));
+    public function testHeridaDead(){
+        $this->assertEquals("dead",$this->op->herida(0));
     }
 
- 
+    public function testPocionViva(){
+        $this->assertEquals('dead',$this->op->pocion(-11,'dead'));
+    }
+
+    public function testPocionMuerta(){
+        $this->assertEquals('alive',$this->op->pocion(-9,'dead'));
+    }
+
 }
