@@ -12,11 +12,13 @@ class Guerrera
         $this->estado=$a3;
     }
 
-    public function herida(){
+    public function herida($a2 , $a3){
         $this->vida-=10;
         if ($this->vida <= 0) {
             $this->estado='muerta';
         }
+        return $this->vida
+        return $this->estado
     }
 
     public function pocion(){
@@ -24,6 +26,9 @@ class Guerrera
         if ($this->vida > 0 && $this->estado == 'muerta'){
             $this->estado = 'viva';
         }
+
+        return $this->vida
+        return $this->estado
     }
 }
 ?>
